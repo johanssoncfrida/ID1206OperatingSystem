@@ -1,0 +1,7 @@
+Bra struktur på rapporten.
+Tycker att diskussionen är lite kort och tunn. Skulle vara ntressant 
+att läsa om vad du tror påverkade green threads och pthreads 
+i benchmarken. Varför den ena var snabbare och möjliga anledningar till
+varför. 
+
+Betyg: 3

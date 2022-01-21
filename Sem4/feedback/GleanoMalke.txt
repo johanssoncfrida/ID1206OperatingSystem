@@ -1,0 +1,12 @@
+Bra testimplementationer som visar på hur du testade varje del. 
+Skulle möjligtvis kunnat ta bort bilden med outputen from terminalen,
+tillförde inte något mer till rapporten. 
+
+Du visar i det kombinerade testet att båda trådar körs. Hade varit intressant
+och se hur din implementation hade påverkat perfomance i jämförelse med Pthreads.
+
+Diskussionen är väldigt kort. Hade kunnat fylla på mer från benchmarken
+och vidareutveckla de resultat du fick från dem.
+
+Betyg 2
+

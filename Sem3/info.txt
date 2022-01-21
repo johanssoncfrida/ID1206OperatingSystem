@@ -1,0 +1,54 @@
+Seminarie
+header = 24 bytes.
+
+header *foo = ....
+header *bar = foo -1;
+
+foo = 0x55....24
+bar = 0x55....00
+
+foo -1 hoppar en hel header bak alltså 24 bytes bakåt.
+
+------------
+
+om foo's innehåll är 48 byte stort.
+
+header *bar = (header*)((char*)foo)-72
+
+char pekar backar 72 bytes bakåt ( 24+48 = 72).
+Sen castar vi det till en header pekare. Vi pekar nu på föregående header(foo).
+
+
+bar -> [size = xx bytes]
+....
+.(48 bytes)
+....
+foo-> [size = 48 bytes]
+
+------------
+
+Om lägga ihop två block. size 80 plus size 40. 
+80+40 = 120. Plus en header 24 bytes!
+Tot = 120+124 = 144.
+
+------------
+
+Högst upp i minnet finns en header.
+Header behöver veta hur stor yta den det upp i minne. ex 40 bytes.
+Nästa header ska ha information om hur stor sin föregående header är.
+
+-----------
+
+
+Rapport
+Lämna endast in rapport, ingen kod. 
+
+Vilka förbättringar kan göras? Välj minst en
+-krympa storleken på head till 8 byte(onödigt att cachen som drar in 64 bytes åt gången alltid dra in en massa headers. Pointless!
+-order the free list
+-several free lists(dela upp per storlek. 16 bytes block för sig, 32 för sig etc).Går snabbt att hitta fria block.
+-several arena med olika free listor. när frigöra block, måste veta vilken arena den tillhör.
+
+
+Implementera en bra benchmark som skriver till en .dat fil, plotta upp i graf. 
+

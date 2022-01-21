@@ -1,0 +1,12 @@
+
+
+Bra struktur på rapporten. 
+Skulle kunna ta bort kodsegmentet för green_t. Tar upp plats som kan lämnas
+för mer diskussion. Ingenting som förklarar ytterligare eftersom vi alla
+har implementerat samma datastruktur. 
+Intressant diskussion om windows och setitimer. Skulle kunna diskutera
+resultatet ytterligare. Du visar en graf och ett svar, men diskuterar
+inte kring varför och vad du tror kanske kunnat påverka green threads
+vs pthreads biblioteket. 
+
+Betyg: 1

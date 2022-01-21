@@ -1,0 +1,18 @@
+Betyg (3,2,1 där 3 är bäst): 1
+
+Bra inledning som förklarar uppgiften. 
+Du skriver mycket om uppgiften och förklarar vad varje del gör men försök fokusera mer på varför det blev 
+ett visst resultat eller hur det faktiskt fungerade. Nu blir det lite kaka på kaka att läsa om funktioner 
+som man redan vet hur de fungerar. Då är det mer intressant om man får läsa om hur du tänkte och varför det
+blev ett visst resultat. 
+
+Istället för printscreena outputen, kör programmet x antal ggr och plotta upp det i en graf, då blir det
+väldigt mycket tydligare för läsaren att se vad som händer. 
+
+Till nästa gång:
+Bra med en kort inledning att förklara vad du gjorde
+Dock minimera förklaringar till varje funktion och fokusera på skillnaden på implementationerna och varför det
+blev som det blev, hur det fungerar det etc. 
+Plotta i graf istället för printscreen.
+
+ 

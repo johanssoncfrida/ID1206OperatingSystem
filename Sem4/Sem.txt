@@ -1,0 +1,11 @@
+Seminarie
+
+green_yield()
+assert(next != NULL): Kolla så att next inte är null.
+
+Fördel med datastruktur: Kan Återanvända sig utav samma struktur , men får
+hela tiden skicka med kön då så att programmet ska veta vilken kö man pratar
+om, cond->kö , ready->kö eller mutex->kö. 
+
+green_thread()
+

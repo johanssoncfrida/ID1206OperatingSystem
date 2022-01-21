@@ -1,0 +1,114 @@
+Presentation av uppgift
+
+1. implementera en procedur som skapar en ny grön tråd. 
+int green_create
+green_t *thread :a pointer to a thread structure
+void *(*fun)(void*): a pointer to a function that takes one argument (void*) 
+with return value void*
+void *arg: the arguments to the function, given as a void*
+
+Vi skapar tråd och lägger upp green thread. 
+Programmet fortsätter att köra. tills green_yield().
+Lägg till tråden sist i ready kön. och ta första tråden som ligger i ready kön och kör den.
+
+int green_join(green_t *thread, void *val)
+-suspend until thread terminates, collect result.
+
+Det var på detta sätt tidigare OS implementerade flertrådade system.
+Man litade på att tråden kallade på yield. 
+
+
+Bild mobil:
+Running -> pid:17
+ready queue-> pid:27 ->pid:37
+
+pid 27 är först i kön. 
+pid 17 är den som just nu körs.
+
+Optimering:
+I readykön, kan vi ha en pekare som pekar på det sista elementet i kön. 
+Så när vi lägger till ett behöver vi bara använda pekaren som pekar på sista elementet.
+
+
+Make sure it works even if ready is NULL.
+
+Join a thread:
+
+Running -> pid:17
+ready queue-> pid:27 ->pid:37
+
+pid 27 vill göra join på 17. om 17 har avslutat plocka upp svaret.
+Men om 17 inte är klar så vill 27 ligga och vänta på tills 17 är klar och 
+plocka upp svaret. 
+ready pekar sen på pid:37
+running pekar på pid:27
+
+resultat ska alltid ges till den som gör join på en när man är klar.
+17 läggs i slutet på ready kö.
+
+scenario
+om running->17
+27an terminerat och är zombie
+ready pid:37
+
+om ingen kört join på 27an. han väntar bara. 
+till sist kör 17 join på 27an. 17 tar resultatet plockar undan 
+27an och tar svaret och kör.
+
+om ingen kör join på 27an. komemr ligga där tills många zombieprocesser.
+
+Vad händer om moderprocessen dör, då plockar föräldern till den upp den. 
+för den kör wait bara hela tiden och kan plocak upp värden när scenario underprocess dör.
+
+om ingen plockar upp zombietråden så är den är zombie tills programmet terminerar.
+
+
+tråd datastruktur
+
+-pekare till context datastruktur. 
+-pekare void *(*fun)(void*) det är den funktionen som den här tråden sparkar igång och 
+ska köra från början.. används en enda gång. skapar grön datastruktur och då 
+sätter vi upp att när du börjar leva så ska du köra den och den proceduren.
+-void *arg  : argument to green_create
+-next pekare : enkellänkad kö. 
+-join pekare : nån som väntar på att du ska terminera.
+-void *retval : returned value
+-int zombie: zombie or not
+
+state på trådar: mutex lås och ligger och väntar, cond varivables och ligger o 
+väntar,zombie, running, ready, join och ligger och väntar på join.
+
+innan skapat trådar, readykön är null.
+enkel att initiera som global ready kö pekare
+
+Running som pekar på et grön datastruktur. vilken om inte skapat några? peka på datastukturen.
+allt i datatsukturen ska va null i början förutom contexten. 
+
+innan programmet kan köra:
+init() constructor.
+
+The use of constructor and destructor attributes allow you to additionally 
+assign a priority to the constructor/destructor to control its order of 
+execution before main() is called or after it returns. 
+
+Måste köra getcontext
+innan man kan använda ett context så måste man göra getContext.
+
+om inte finns tråd i readykön? 
+
+tips: är readykön tom, skriv ut varning!
+
+challenge:
+
+timer interrupt : göra en swap. Varning! kanske gör interrupt mitt i green_join.
+lösning:
+Stäng av alla timer interrupts och kör green_join och sen sätt på timer interrupts.
+Problem still?
+kan få timer interrupt närsomhelst. blir konstig med read/write. 
+läser värdet->timerinterrupt->annan kör och läser och uppdaterar-> vi vaknar och skriver. Not good!
+Vi behöver implementera ett lås.
+Implementera mutex och atomic suspend-release för att vissa saker behöver köras
+innan jag kör. 
+
+Benchmark på hur snabbt det går. jämföra pthread och våra gröna trådar.
+taskset 1 : kör bara på core 1. 

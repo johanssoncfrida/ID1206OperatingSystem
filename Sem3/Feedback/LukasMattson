@@ -1,0 +1,31 @@
+Betyg (av 3,2,1 där 3 rankas som bäst): 2
+
+-Skulle behövas läsas igenom en gång till och gå igenom språket (stavfel, särskrivningar etc)
+-Bra inledning som förklarar uppgiften.
+
+-Det är intressant det du skriver om i uppgiften och hur saker och ting fungerar,
+dock kanske lite överflödig information ibland i vissa delar. 
+Eftersom vi alla har gjort uppgiften så (förhoppningsvis) vet vi ju vad varje
+del i koden ska hantera. 
+Det blir då lite kaka på kaka att läsa om vad funktionerna ska hantera igen.
+Minimera det och fokusera istället på de delar där du förklarar de problem som uppstod och
+vidareutveckla det. Då får du mer plats och kanske istället kan lägga in en graf som
+styrker det du skriver. 
+
+Tabellen i slutet är lite otydlig. Är det sekunder/mikrosekunder? Tydligare med graf?
+Jag är lite osäker på optimeringsuppgiften då vi gjort olika. Jag reducerade headern till 8 bytes
+men du skriver att du reducerade MED 4 bytes så istället för en 24 byte header så har du en 20 byte header?
+Eftersom du inte fick ett resultat som blev bättre än den ursprungliga så kanske det hade varit värt att 
+prova att använda sig utav 'taken' datastrukturen enligt uppgiften och prova det om det hade gett ett bättre resultat? 
+Annars intressant resultat som visar på att lösningen med overhead inte gav ett bättre resultat.
+
+Tabellen i sluten skulle kunna vara bättre som graf då det blir tydligare för läsaren att se.
+
+Utöver det, bra rapport som är tydligt skriven om vad som händer.
+Det jag skulle fokusera på kanske till nästa seminarie är att minimera beskrivningen om vad varje del ska göra
+och fokusera istället mer på frågor som varför? hur? Det gör du också, men vidareutveckla det
+och plotta upp en graf som visualiserar det. Blir väldigt tydligt då. 
+
+
+  
+
